@@ -1,0 +1,20 @@
+name: Papermill executor
+description: Calculates confusion matrix
+inputs:
+  - {name: notebook, type: string,
+     description: 'The Jupyter Notebook to be executed by Papermill'}
+  - {name: parameters, type: Dictionary,
+    description: 'The parameters dictionary, the sample '}
+  - {name: output notebook, type: string,
+    description: 'The path of the notebook to be stored somewhere, not as the component output'}
+outputs:
+  - {name: outputs,     type: Dictionary}
+implementation:
+  container:
+    image: 
+    command: [python, /ml/confusion_matrix.py]
+    args: [
+      --input-notebook, {inputValue: notebook},
+      --parameters, {inputValue: parameters},
+      --output-notebook,      {inputValue: output notebook},
+    ]
