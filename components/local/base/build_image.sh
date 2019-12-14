@@ -17,6 +17,7 @@
 mkdir -p ./build
 rsync -arvp "../confusion_matrix/src"/ ./build/
 rsync -arvp "../roc/src"/ ./build/
+rsync -arvp "../papermill/src"/ ./build/
 
 cp ../../license.sh ./build
 cp ../../third_party_licenses.csv ./build
